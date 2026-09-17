@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Průvodce městem Trutnov | Kontakt</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="hlavicka">
+		<div class="obal hlavicka-vnitr">
+			<a class="logo" href="home.html">
+				<span class="logo-znak">T</span>
+				<span class="logo-text"><small>Průvodce městem</small>Trutnov</span>
+			</a>
+			<nav class="menu" aria-label="Hlavní navigace">
+				<a href="home.html">Home</a>
+				<a href="pamatky.html">Památky</a>
+				<a href="restaurace.html">Restaurace</a>
+				<a href="udalosti.html">Události</a>
+				<a href="doprava.html">Doprava</a>
+				<a href="kontakt.html" aria-current="page">Kontakt</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="obal">
+		<section class="sekce">
+			<div class="sekce-hlava">
+				<div>
+					<span class="popisek">Kontakt</span>
+					<h1>Napiš nám tip nebo dotaz</h1>
+				</div>
+			</div>
+
+			<div class="kontakt-rozvrzeni">
+				<div class="kontakt-mrizka">
+					<div class="kontakt-box">
+						<h3>Turistické informace</h3>
+						<p>Rychlý prostor pro dotazy k programu, mapě nebo doporučenému itineráři.</p>
+						<div class="tagy"><span>info</span><span>město</span></div>
+					</div>
+					<div class="kontakt-box">
+						<h3>Co můžeš poslat</h3>
+						<ul class="seznam">
+							<li>dotaz k dopravě a orientaci</li>
+							<li>tip na restauraci nebo akci</li>
+							<li>návrh, co doplnit do webu</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="kontakt-box">
+					<h3>Kontaktní formulář</h3>
+					<form class="kontakt-forma">
+						<label>
+							Jméno
+							<input type="text" name="jmeno" placeholder="Tvoje jméno">
+						</label>
+						<label>
+							E-mail
+							<input type="email" name="email" placeholder="tvuj@email.cz">
+						</label>
+						<label>
+							Téma
+							<select name="tema">
+								<option>Dotaz k památkám</option>
+								<option>Doporučení restaurace</option>
+								<option>Události a program</option>
+								<option>Doprava a mapa</option>
+							</select>
+						</label>
+						<label>
+							Zpráva
+							<textarea name="zprava" placeholder="Napiš svůj dotaz nebo tip..."></textarea>
+						</label>
+						<button class="tlacitko" type="submit">Odeslat zprávu</button>
+						<p class="poznamka">Formulář je statický a slouží jako součást školního webu.</p>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="paticka">
+		<div class="obal paticka-vnitr">
+			<div>Průvodce městem Trutnov</div>
+			<div>Kontakt a zpětná vazba</div>
+		</div>
+	</footer>
+</body>
+</html>

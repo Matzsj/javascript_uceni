@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Průvodce městem Trutnov | Home</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="hlavicka">
+		<div class="obal hlavicka-vnitr">
+			<a class="logo" href="home.html" aria-label="Průvodce městem Trutnov">
+				<span class="logo-znak">T</span>
+				<span class="logo-text"><small>Průvodce městem</small>Trutnov</span>
+			</a>
+			<nav class="menu" aria-label="Hlavní navigace">
+				<a href="home.html" aria-current="page">Home</a>
+				<a href="pamatky.html">Památky</a>
+				<a href="restaurace.html">Restaurace</a>
+				<a href="udalosti.html">Události</a>
+				<a href="doprava.html">Doprava</a>
+				<a href="kontakt.html">Kontakt</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="obal uvod">
+			<div>
+				<span class="popisek">Průvodce městem Trutnov</span>
+				<h1>Průvodce městem Trutnov</h1>
+				<p>
+					Web o městu Trutnov. Najdeš tu památky, restaurace, události,
+					dopravu, mapu a krátký plán na jeden den.
+				</p>
+				<div class="uvod-akce">
+					<a class="tlacitko" href="pamatky.html">Prohlédnout památky</a>
+					<a class="tlacitko-ram" href="#program">Jednodenní itinerář</a>
+				</div>
+
+			</div>
+		</section>
+
+		<section class="obal sekce">
+			<div class="sekce-hlava">
+				<div>
+					<span class="popisek">Stránky</span>
+					<h2>Co web obsahuje</h2>
+				</div>
+			</div>
+
+			<div class="karty karty-siroké">
+				<article class="karta">
+					<img src="obrazky/namesti.webp" alt="Památky">
+					<div class="karta-obsah">
+						<h3>Památky</h3>
+						<p>Výběr míst, která dávají smysl při první návštěvě města.</p>
+					</div>
+				</article>
+				<article class="karta">
+					<img src="obrazky/jednicka.jpg" alt="Restaurace">
+					<div class="karta-obsah">
+						<h3>Restaurace</h3>
+						<p>Kde se dá zastavit na jídlo nebo kávu během dne.</p>
+					</div>
+				</article>
+				<article class="karta">
+					<img src="obrazky/udalost.jpg" alt="Události">
+					<div class="karta-obsah">
+						<h3>Události</h3>
+						<p>Krátký přehled akcí a programu ve městě.</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="obal sekce">
+<div class="sekce-hlava">
+			<div>
+				<span class="popisek">Mapa</span>
+				<h2>Orientace v Trutnově</h2>
+			</div>
+			<p class="sekce-text">
+					Přehledná mapa pomůže s orientací v centru.
+				</p>
+			</div>
+
+		<div class="mapa-box">
+            <img src="obrazky/mapa.png" alt="Mapa Trutnova" class="mapa" width="1200px" height="500px">
+			</div>
+		</section>
+
+		<section class="obal sekce" id="program">
+			<div class="sekce-hlava">
+				<div>
+					<span class="popisek">Doporučený plán</span>
+					<h2>Jednodenní itinerář</h2>
+				</div>
+				<p class="sekce-text">
+					Krátký plán na jeden den bez složitého přemýšlení.
+				</p>
+			</div>
+
+			<div class="program">
+				<div class="program-krok">
+					<div class="program-cas">09:00</div>
+					<div>
+						<h3>Historické centrum</h3>
+						<p>Začni na náměstí, dej si krátkou snídani a projdi nejbližší památky a uličky.</p>
+					</div>
+				</div> 
+				<div class="program-krok">
+					<div class="program-cas">11:00</div>
+					<div>
+						<h3>Vyhlídka a park</h3>
+						<p>Přesuň se na klidnější místo, odkud uvidíš město a získáš přirozenou pauzu.</p>
+					</div>
+				</div>
+				<div class="program-krok">
+					<div class="program-cas">13:00</div>
+					<div>
+						<h3>Oběd v restauraci</h3>
+						<p>Vyber si podnik podle toho, jestli chceš rychlý oběd, nebo pohodový delší zážitek.</p>
+					</div>
+				</div>
+				<div class="program-krok">
+					<div class="program-cas">15:00</div>
+					<div>
+						<h3>Události a kultura</h3>
+						<p>Mrkni na aktuální program, galerii nebo trh, pokud chceš po obědě živější část dne.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="paticka">
+		<div class="obal paticka-vnitr">
+			<div>Průvodce městem Trutnov</div>
+			<div>Statický web s HTML a CSS</div>
+		</div>
+	</footer>
+</body>
+</html>
