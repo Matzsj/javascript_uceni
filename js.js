@@ -4,9 +4,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.use(express.static('www'));
+app.set('view engine', 'ejs')
+
+// app.use(express.static('www'));
+
+app.set('views', './views')
+
 app.get('/', (req, res) => {
-  res.send('Server funguje!');
+  res.render('index');
 });
 
 app.listen(port, () => {

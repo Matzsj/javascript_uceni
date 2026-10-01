@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Průvodce městem Trutnov | Památky</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="hlavicka">
+		<div class="obal hlavicka-vnitr">
+			<a class="logo" href="home.html">
+				<span class="logo-znak">T</span>
+				<span class="logo-text"><small>Průvodce městem</small>Trutnov</span>
+			</a>
+			<nav class="menu" aria-label="Hlavní navigace">
+				<a href="home.html">Home</a>
+				<a href="pamatky.html" aria-current="page">Památky</a>
+				<a href="restaurace.html">Restaurace</a>
+				<a href="udalosti.html">Události</a>
+				<a href="doprava.html">Doprava</a>
+				<a href="kontakt.html">Kontakt</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="obal">
+		<section class="sekce">
+			<div class="sekce-hlava">
+				<div>
+					<span class="popisek">Památky</span>
+					<h1>Co v Trutnově vidět</h1>
+				</div>
+				<p class="sekce-text">
+					Základní výběr míst podle historie, výhledů a klidnějších zastávek.
+				</p>
+			</div>
+
+			<input class="filtr-vstup" type="radio" name="filter-pamatky" id="filtr-vse" checked>
+			<input class="filtr-vstup" type="radio" name="filter-pamatky" id="filtr-historie">
+			<input class="filtr-vstup" type="radio" name="filter-pamatky" id="filtr-vyhled">
+			<input class="filtr-vstup" type="radio" name="filter-pamatky" id="filtr-rodina">
+
+			<div class="filtr-panel" aria-label="Filtr kategorií">
+				<label class="filtr-tlacitko" for="filtr-vse">Vše</label>
+				<label class="filtr-tlacitko" for="filtr-historie">Historie</label>
+				<label class="filtr-tlacitko" for="filtr-vyhled">Vyhlídky</label>
+			</div>
+
+			<div class="karty">
+				<article class="karta karta-filtr historie">
+					<img src="obrazky/namesti.webp" alt="Historické náměstí">
+					<div class="karta-obsah">
+						<h3>Historické náměstí</h3>
+						<p>Dobré místo pro začátek procházky městem.</p>
+					</div>
+				</article>
+				<article class="karta karta-filtr vyhled">
+					<img src="obrazky/vyhlidka.jpg" alt="Vyhlídka">
+					<div class="karta-obsah">
+						<h3>Vyhlídka nad městem</h3>
+						<p>Krátká cesta s výhledem na město.</p>
+					</div>
+				</article>
+				<article class="karta karta-filtr rodina">
+					<img src="obrazky/park.jpg" alt="Městský park">
+					<div class="karta-obsah">
+						<h3>Městský park</h3>
+						<p>Klidné místo na pauzu a odpočinek.</p>
+					</div>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<footer class="paticka">
+		<div class="obal paticka-vnitr">
+			<div>Průvodce městem Trutnov</div>
+			<div>Památky a vyhlídky</div>
+		</div>
+	</footer>
+</body>
+</html>
