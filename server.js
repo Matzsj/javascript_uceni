@@ -5,10 +5,7 @@ require('dotenv').config();
 const port = process.env.PORT;
 
 // spusteni serveru pro aplikaci
-require('http').createServer(require('./app'))
-
-require('http').createServer(require('./app'))
+require('http').createServer(require('./js.js'))
 .listen(port, () => {
-    // hlaska pri spusteni serveru
     console.log(`Server běží na http://localhost:${port}`);
 });
