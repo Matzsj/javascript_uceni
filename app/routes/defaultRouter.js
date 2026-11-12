@@ -1,3 +1,6 @@
+const model = require('../models/postsModel.js');
+
+
 const router = require('express').Router();
 
 
@@ -33,11 +36,7 @@ router.get('/kontakt', (req, res) => {
 router.get('/prispevky', (req, res) => {
 	res.render('prispevky', {
 		titulek: 'Příspěvky',
-		prispevky: [
-			{ id: 1, nadpis: 'První příspěvek', obsah: 'Toto je první příspěvek.' },
-			{ id: 2, nadpis: 'Druhý příspěvek', obsah: 'Toto je druhý příspěvek.' },
-			{ id: 3, nadpis: 'Třetí příspěvek', obsah: 'Toto je třetí příspěvek.' },
-		],
+    prispevky: model.nacistPrispevky(),
 	});
 });
 
