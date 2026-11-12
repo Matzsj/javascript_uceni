@@ -2,7 +2,10 @@ const router = require('express').Router();
 
 
 router.get(['/','/index'], (req, res) => {
-	res.render('index');
+		res.render('index', {
+		nazevMesta: 'Trutnov',
+    titulek: 'Průvodce  Trutnov',
+	});
 });
 
 router.get('/udalosti', (req, res) => {
@@ -29,7 +32,9 @@ router.get('/kontakt', (req, res) => {
 
 // vsechny ostatni URL jsou chyba
 router.use((req, res) => {
-    res.render('error');
+    res.status(404).render('error', {
+		  titulek: 'Chyba',
+	});
 });
 
 // exportovani routeru pro pouziti v aplikaci
