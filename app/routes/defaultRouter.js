@@ -4,7 +4,7 @@ const router = require('express').Router();
 router.get(['/','/index'], (req, res) => {
 		res.render('index', {
 		nazevMesta: 'Trutnov',
-    titulek: 'Průvodce  Trutnov',
+    titulek: 'Průvodce městem Trutnov',
 	});
 });
 
@@ -28,6 +28,18 @@ router.get('/kontakt', (req, res) => {
   res.render('kontakt');
 });
 
+
+
+router.get('/prispevky', (req, res) => {
+	res.render('prispevky', {
+		titulek: 'Příspěvky',
+		prispevky: [
+			{ id: 1, nadpis: 'První příspěvek', obsah: 'Toto je první příspěvek.' },
+			{ id: 2, nadpis: 'Druhý příspěvek', obsah: 'Toto je druhý příspěvek.' },
+			{ id: 3, nadpis: 'Třetí příspěvek', obsah: 'Toto je třetí příspěvek.' },
+		],
+	});
+});
 
 
 // vsechny ostatni URL jsou chyba
