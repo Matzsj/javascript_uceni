@@ -31,6 +31,18 @@ router.get('/kontakt', (req, res) => {
   res.render('kontakt');
 });
 
+router.get('/posts/:id', (req, res) => {
+	// vyzvednuti parametru z URL
+	const id = req.params.id;
+	// nacteni dat pomoci modelu
+	const prispevek = model.nacistPrispevek(id);
+
+	res.render('post', {
+		titulek: 'Příspěvek',
+		prispevek: prispevek,
+	});
+
+});
 
 
 router.get('/prispevky', (req, res) => {
