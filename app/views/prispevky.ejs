@@ -7,7 +7,10 @@
     <title><%= titulek %></title>
 </head>
 <body>
-	<header class="hlavicka">
+	
+
+    
+    <header class="hlavicka">
 		<div class="obal hlavicka-vnitr">
 			<a class="logo" href="home.html" aria-label="Průvodce městem Trutnov">
 				<span class="logo-znak">T</span>
@@ -23,14 +26,27 @@
                 <a href="/prispevky">Příspěvky</a>
 			</nav>
 		</div>
+        
+
+
 	</header>
         <h1><%= titulek %></h1>
+
+        <form action="/prispevky/new" method="post">
+            <input type="text" name="nadpis" placeholder="Nadpis..." required /><br />
+            <textarea name="obsah" placeholder="Obsah..." required></textarea><br />
+            <input type="submit" value="Přidat příspěvek" />
+        </form>
     <% if(typeof prispevky == 'undefined' || prispevky.length == 0) { %>
         <p><i>Dosud neexistují žádné příspěvky.</i></p>
     <% } else { %>
-    <% for(let i = 0; i < prispevky.length; i++) { %>
+    <% for(let i = prispevky.length - 1; i >= 0; i--) { %>
         <div id="<%= prispevky[i].id %>">
-        <p><%= prispevky[i].nadpis %> <a href="posts/<%= prispevky[i].id %>">detail</a></p>
+            <p>
+                <%= prispevky[i].nadpis %>
+                <a href="posts/<%= prispevky[i].id %>">detail</a>
+                <a href="posts/delete/<%= prispevky[i].id %>">smazat</a>
+            </p>
         </div>
     <% }} %>
 

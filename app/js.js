@@ -11,7 +11,8 @@ app.use(express.static('public'));
 
 app.set('views', './app/views')
 
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // o zpracovani URL se stara router
 app.use(require('./routes/defaultRouter'));
