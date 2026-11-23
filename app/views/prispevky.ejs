@@ -44,8 +44,8 @@
         <div id="<%= prispevky[i].id %>">
             <p>
                 <%= prispevky[i].nadpis %>
-                <a href="posts/<%= prispevky[i].id %>">detail</a>
-                <a href="posts/delete/<%= prispevky[i].id %>">smazat</a>
+                <a href="/prispevky/<%= prispevky[i].id %>">detail</a>
+                <a href="/prispevky/delete/<%= prispevky[i].id %>">smazat</a>
             </p>
         </div>
     <% }} %>

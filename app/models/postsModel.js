@@ -1,14 +1,20 @@
 const jsondb = require('simple-json-db');
+const path = require('path');
 // vytvoreni databaze z datoveho souboru na disku
-const db = new jsondb('../data/posts.json');
+const db = new jsondb(path.resolve(__dirname, '../../data/posts.json'));
+
+const nacistPolePrispevku = () => {
+    const data = db.JSON();
+    return Array.isArray(data) ? data : [];
+}
 
 // nabizena funkcnost modelu
 exports.nacistPrispevky = () => {
-    return db.JSON();
+    return nacistPolePrispevku();
 }
 
 exports.nacistPrispevek = (id) => {
-    const prispevky = db.JSON();
+    const prispevky = nacistPolePrispevku();
 
     for(let i = 0; i < prispevky.length; i++) {
         if(prispevky[i].id == id) {
@@ -21,7 +27,7 @@ exports.nacistPrispevek = (id) => {
 
 // smazani konkretniho prispevku
 exports.smazatPrispevek = (id) => {
-    const prispevky = db.JSON();
+    const prispevky = nacistPolePrispevku();
 
     for(let i = 0; i < prispevky.length; i++) {
         if(prispevky[i].id == id) {
@@ -36,7 +42,7 @@ exports.smazatPrispevek = (id) => {
 }
 
 exports.pridatPrispevek = (nadpis, obsah) => {
-    const prispevky = db.JSON();
+    const prispevky = nacistPolePrispevku();
 
     // urceni noveho ID
     let noveId = 1;
