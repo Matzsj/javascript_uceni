@@ -39,6 +39,12 @@ exports.udalosti = (req, res) => {
 	});
 }
 
+exports.about = (req, res) => {
+	res.render('about', {
+		titulek: 'O aplikaci',
+	});
+};
+
 // chybova stranka
 exports.error = (req, res) => {
     res.render('error', {

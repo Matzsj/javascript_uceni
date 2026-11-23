@@ -7,6 +7,8 @@ const router = require('express').Router();
 
 router.get(['/udalosti'], controller.udalosti);
 
+router.use(['/users'], require('./usersRouter.js'));
+
 router.get(['/pamatky'], controller.pamatky);
 
 router.get(['/restaurace'], controller.restaurace);
@@ -14,6 +16,8 @@ router.get(['/restaurace'], controller.restaurace);
 router.get(['/doprava'], controller.doprava);
 
 router.get(['/kontakt'], controller.kontakt);
+
+router.get(['/about'], controller.about);
 
 
 

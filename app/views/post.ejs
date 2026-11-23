@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1><%= titulek %></h1>
+    <main>
+        <header>
+            <a href="/">Domů</a>
+
+            <a href="/prispevky">Příspěvky</a>
+            
+            <a href="/users">Uživatelé</a>
+        
+            <a href="/about">O aplikaci</a>
+        <hr />
+    </header>
+    
     <% if(typeof prispevek == 'undefined' || prispevek == false) { %>
         <p><i>Takový příspěvek neexistuje.</i></p>
     <% } else { %>
