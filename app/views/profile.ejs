@@ -6,4 +6,8 @@
         <input type="submit" value="Odhlásit" />
     </form>
 
+    <form action="/users/delete" method="post" onsubmit="return confirm('Opravdu chcete zrušit účet?');">
+        <input type="submit" value="Zrušit účet" />
+    </form>
+
 <%- include('_partials/tails') %>

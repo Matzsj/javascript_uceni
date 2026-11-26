@@ -34,3 +34,14 @@ exports.pridatUzivatele = (jmeno, heslo) => {
 
     return true;
 }
+
+exports.smazatUzivatele = (jmeno) => {
+    if (!db.has(jmeno)) {
+        return false;
+    }
+
+    db.delete(jmeno);
+    db.sync();
+
+    return true;
+}

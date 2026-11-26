@@ -45,3 +45,15 @@ exports.getOut = (req, res) => {
     req.session.destroy();
     res.redirect('/users');
 }
+
+exports.deleteAccount = (req, res) => {
+    const jmeno = req.session.prihlasenyUzivatel;
+
+    if(!jmeno) {
+        return res.redirect('/users');
+    }
+
+    model.smazatUzivatele(jmeno);
+    req.session.destroy();
+    res.redirect('/users');
+}

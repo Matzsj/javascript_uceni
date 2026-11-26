@@ -1,4 +1,7 @@
+const jsondb = require('simple-json-db');
+const path = require('path');
 
+const db = new jsondb(path.resolve(__dirname, '../../data/posts.json'));
 
 const nacistPolePrispevku = () => {
     const data = db.JSON();
@@ -55,8 +58,4 @@ exports.pridatPrispevek = (nadpis, obsah) => {
 
     db.JSON(prispevky);
     db.sync();
-
-    const jsondb = require('simple-json-db');
-
-    const db = new jsondb('../data/posts.json');
 }
