@@ -5,29 +5,65 @@ exports.oneForm = (req, res) => {
         return res.redirect('/users/profile');
     }
     res.render('users', {
-        titulek: 'Uživatelé',
+        titulek: 'Uživatelský účet',
     });
 }
 
-exports.uniSign = (req, res) => {
-    const jmeno = req.body.jmeno;
-    const heslo = req.body.heslo;
-
-    if(model.existujeUzivatel(jmeno)) {
-        if(model.spravneHeslo(jmeno, heslo)) {
-            
-            req.session.prihlasenyUzivatel = jmeno;
-            res.redirect('/users/profile');
-        } else {
-            // chybne heslo
-            res.redirect('/users');
-        }
-    } else {
-        model.pridatUzivatele(jmeno, heslo);
-        
-        req.session.prihlasenyUzivatel = jmeno;
-        res.redirect('/users/profile');
+exports.loginForm = (req, res) => {
+    if(req.session.prihlasenyUzivatel) {
+        return res.redirect('/users/profile');
     }
+
+    res.render('login', {
+        titulek: 'Přihlášení',
+    });
+}
+
+exports.registerForm = (req, res) => {
+    if(req.session.prihlasenyUzivatel) {
+        return res.redirect('/users/profile');
+    }
+
+    res.render('register', {
+        titulek: 'Registrace',
+    });
+}
+
+exports.login = (req, res) => {
+    const jmeno = typeof req.body.jmeno === 'string' ? req.body.jmeno.trim() : '';
+    const heslo = typeof req.body.heslo === 'string' ? req.body.heslo : '';
+
+    if(!jmeno || !heslo || !model.spravneHeslo(jmeno, heslo)) {
+        return res.status(401).render('login', {
+            titulek: 'Přihlášení',
+            chyba: 'Neplatné jméno nebo heslo.',
+        });
+    }
+
+    req.session.prihlasenyUzivatel = jmeno;
+    res.redirect('/users/profile');
+}
+
+exports.register = (req, res) => {
+    const jmeno = typeof req.body.jmeno === 'string' ? req.body.jmeno.trim() : '';
+    const heslo = typeof req.body.heslo === 'string' ? req.body.heslo : '';
+
+    if(!jmeno || !heslo) {
+        return res.status(400).render('register', {
+            titulek: 'Registrace',
+            chyba: 'Vyplňte jméno i heslo.',
+        });
+    }
+
+    if(!model.pridatUzivatele(jmeno, heslo)) {
+        return res.status(409).render('register', {
+            titulek: 'Registrace',
+            chyba: 'Uživatel s tímto jménem už existuje.',
+        });
+    }
+
+    req.session.prihlasenyUzivatel = jmeno;
+    res.redirect('/users/profile');
 }
 
 exports.profile = (req, res) => {

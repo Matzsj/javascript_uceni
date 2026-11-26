@@ -1,0 +1,21 @@
+<%- include('_partials/heads') %>
+
+    <% if (typeof chyba !== 'undefined') { %>
+        <p role="alert"><%= chyba %></p>
+    <% } %>
+    <form action="/users/register" method="post">
+        <label>
+            Jméno
+            <input type="text" name="jmeno" autocomplete="username" required />
+        </label>
+        <br />
+        <label>
+            Heslo
+            <input type="password" name="heslo" autocomplete="new-password" required />
+        </label>
+        <br />
+        <input type="submit" value="Registrovat se" />
+    </form>
+    <p>Už máte účet? <a href="/users/login">Přihlaste se</a>.</p>
+
+<%- include('_partials/tails') %>
