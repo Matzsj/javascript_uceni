@@ -1,4 +1,5 @@
 const model = require('../models/usersModel');
+const postsModel = require('../models/postsModel');
 
 exports.oneForm = (req, res) => {
     if(req.session.prihlasenyUzivatel) {
@@ -89,6 +90,7 @@ exports.deleteAccount = (req, res) => {
         return res.redirect('/users');
     }
 
+    postsModel.smazatPrispevkyAutora(jmeno);
     model.smazatUzivatele(jmeno);
     req.session.destroy();
     res.redirect('/users');

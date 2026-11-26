@@ -26,7 +26,13 @@
         <div id="<%= prispevek.id %>">
             <h2><%= prispevek.nadpis %></h2>
             <p><%= prispevek.obsah %></p>
+            <p>Autor: <%= prispevek.autor || 'Neznámý autor' %></p>
         </div>
+        <% if (prispevek.autor === autorAktualni) { %>
+            <form action="/prispevky/delete/<%= prispevek.id %>" method="post">
+                <button type="submit">Smazat příspěvek</button>
+            </form>
+        <% } %>
     <% } %>
     <a href="/prispevky">Zpět</a>
 </body>

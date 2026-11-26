@@ -46,9 +46,14 @@
         <div id="<%= prispevky[i].id %>">
             <p>
                 <%= prispevky[i].nadpis %>
+                <span>Autor: <%= prispevky[i].autor || 'Neznámý autor' %></span>
                 <a href="/prispevky/<%= prispevky[i].id %>">detail</a>
-                <a href="/prispevky/delete/<%= prispevky[i].id %>">smazat</a>
             </p>
+            <% if (prispevky[i].autor === autorAktualni) { %>
+                <form action="/prispevky/delete/<%= prispevky[i].id %>" method="post">
+                    <button type="submit">Smazat</button>
+                </form>
+            <% } %>
         </div>
     <% }} %>
 

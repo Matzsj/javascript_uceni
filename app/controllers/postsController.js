@@ -4,6 +4,7 @@ exports.allPosts = (req, res) => {
 	res.render('prispevky', {
 		titulek: 'Příspěvky',
 		prispevky: model.nacistPrispevky(),
+		autorAktualni: req.session.prihlasenyUzivatel,
 	});
 }
 
@@ -18,6 +19,7 @@ exports.showPost = (req, res) => {
 	res.render('post', {
 		titulek: 'Příspěvek',
 		prispevek: prispevek,
+		autorAktualni: req.session.prihlasenyUzivatel,
 	});
 }
 
@@ -27,7 +29,7 @@ exports.deletePost = (req, res) => {
     const id = req.params.id;
     
     // smazani provadi model
-    model.smazatPrispevek(id);
+    model.smazatPrispevek(id, req.session.prihlasenyUzivatel);
 
     // presmerovani opet na vypis
     res.redirect('/prispevky');
@@ -38,12 +40,13 @@ exports.addPost = (req, res) => {
     const nadpis = req.body.nadpis;
     const obsah = req.body.obsah;
 
-    if(!nadpis || !obsah) {
+    if(typeof nadpis !== 'string' || !nadpis.trim() ||
+        typeof obsah !== 'string' || !obsah.trim()) {
         return res.redirect('/prispevky');
     }
 
     // pridavani zajistuje model
-    model.pridatPrispevek(nadpis, obsah);
+    model.pridatPrispevek(nadpis.trim(), obsah.trim(), req.session.prihlasenyUzivatel);
 
     // presmerovani opet na vypis
     res.redirect('/prispevky');
